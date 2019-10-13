@@ -254,7 +254,8 @@ extension MapViewController: UISearchBarDelegate {
             }
             self.mapView.removeAnnotations(self.pointsInterest)
             self.pointsInterest.removeAll()
-            for item in response!.mapItems {
+            guard let currentResponse = response else { return }
+            for item in currentResponse.mapItems {
                 let annotation = PlaceAnnotation(coordinate: item.placemark.coordinate, type: .pointInterest)
                 annotation.title = item.name
                 annotation.subtitle = item.phoneNumber
