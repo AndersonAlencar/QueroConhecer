@@ -103,11 +103,8 @@ class PlaceFinderViewController: UIViewController {
     
     func load(show: Bool)  {
         viLoading.isHidden = !show
-        if show {
-            aiLoading.startAnimating()
-        } else {
-            aiLoading.stopAnimating()
-        }
+        let _ = show ? aiLoading.startAnimating() : aiLoading.stopAnimating()
+        
     }
     
     func savePlace(with placemark: CLPlacemark?) -> Bool {
